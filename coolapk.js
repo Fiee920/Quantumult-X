@@ -1,4 +1,4 @@
-*******************************
+/*******************************
   公众号:木木IOS分享
 关注了解更多新科技！！！
 酷安用户名
@@ -22,12 +22,12 @@ hostname = *.coolapk.*
 
 *******************************/
 var obj = JSON.parse($response.body);
-    obj.level= 99;
-obj.experience= 999999999;
-obj.next_level_experience= 999999999;
-obj.username= "Admin;
-obj.displayUsername= "Admin;
-obj.feed= 9999;
-obj.follow= 0;
-obj.fans= 99999;
+    obj.data.level= 99;
+obj.data.experience= 999999999;
+obj.data.next_level_experience= 999999999;
+obj.data.username= "Admin;
+obj.data.displayUsername= "Admin;
+obj.data.feed= 9999;
+obj.data.follow= 0;
+obj.data.fans= 99999;
     $done({body: JSON.stringify(obj)});
