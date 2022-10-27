@@ -1,19 +1,5 @@
-[rewrite_local]
-^http[s]?:\/\/api.psy-1.com\/cosleep\/user\/info*.+$ url script-response-body psy-1.js
-[mitm] 
-hostname = *.psy-1.*
-*******************************
-Surge
-
-[Script]
-^http[s]?:\/\/api.psy-1.com\/cosleep\/user\/info*.+$ requires-body=1,max-size=0,script-path=psy-1.js
-
-[MITM]
-hostname = *.psy-1.*
-
-*******************************/
-var obj = JSON.parse($response.body);
-obj.data.is_vip= 1;
-obj.data.have_vip= 1;
-obj.data.vip_expires= 1;
-$done({body: JSON.stringify(obj)});
+var body=$response.body;
+body = body.replace(/is_vip\":0/g,'is_vip":1');
+body = body.replace(/"have_vip\":0/g,'"have_vip":1');
+body = body.replace(/vip_expires\":0/g,'vip_expires":1');
+$done(body);
